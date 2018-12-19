@@ -13,8 +13,7 @@ namespace BinaryConverter
 {
     public partial class MainPage : ContentPage
     {
-        bool isDecToBin = true;// es gamoiyene da aq dawere is ternaruli if :D gaqvs ukve mzad iq  ro ar akontrolo calke
-        //ki aris magram minda ro aq rac sheidzleba cota rame gaketdes,minda maqsimalurad external iyos ra :d
+        bool isDecToBin = true;
         public MainPage()
         {
             InitializeComponent();
@@ -23,7 +22,7 @@ namespace BinaryConverter
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-           Binary.Text = isDecToBin ? Tool.LMethods.DecToBin(Decimal.Text) : Tool.LMethods.BinToDec(Decimal.Text);//vso  // Tool.LMethods.ActionSelector();
+           Binary.Text = isDecToBin ? Tool.LMethods.DecToBin(Decimal.Text) : Tool.LMethods.BinToDec(Decimal.Text);
         }
         private void Invert_Clicked(object sender, EventArgs e)
         {

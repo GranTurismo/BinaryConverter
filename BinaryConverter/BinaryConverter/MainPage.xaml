@@ -13,11 +13,11 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0">
+        <Grid Grid.Row="0" Grid.Column="0" BackgroundColor="PapayaWhip">
                 <Label Margin="0,12,0,0"  Text="Decimal"
-                       x:Name="DecLabel" HorizontalOptions="StartAndExpand"
+                       x:Name="DecLabel" HorizontalOptions="Center"
                        VerticalOptions="Start"/>
                 </Grid>
         <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
@@ -26,11 +26,11 @@
         </Grid>
         <Grid Grid.Row="1" Grid.ColumnSpan="3">
             <Button x:Name="invert" FontSize="10" WidthRequest="50"
-                    HorizontalOptions="Center" Clicked="Invert_Clicked"
+                    HorizontalOptions="Center" TextColor="Black" BackgroundColor="Moccasin" Clicked="Invert_Clicked"
                     Text="↑↓"/>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="0">
-            <Label Margin="0,15,0,0" Text="Binary" x:Name="BinLabel"/>
+        <Grid Grid.Row="2" Grid.Column="0" BackgroundColor="PapayaWhip">
+            <Label Margin="0,15,0,0" Text="Binary" HorizontalOptions="Center" x:Name="BinLabel"/>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
             <Editor x:Name="Binary" HorizontalOptions="Fill"
@@ -38,7 +38,7 @@
         </Grid>
         <Grid Grid.Row="3" Grid.ColumnSpan="3">
             <Button Clicked="Button_Clicked" HorizontalOptions="Center"
-                    VerticalOptions="Start" Text="Calulate"/>
+                    VerticalOptions="Start" BackgroundColor="Moccasin" Text="Calulate"/>
         </Grid>
     </Grid>
 

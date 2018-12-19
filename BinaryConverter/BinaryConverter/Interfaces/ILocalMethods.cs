@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BinaryConverter.Interfaces
 {
-    interface ILocalMethods//sruliad gaugebari interfeisia profesor :D ra gaqvs gegmashi? raserchi am interfeiss
+    interface ILocalMethods
     {
         string DecToBin(string dec);
         string BinToDec(string dec);
