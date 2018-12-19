@@ -3,34 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BinaryConverter"
              x:Class="BinaryConverter.MainPage">
-
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="70"/>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="0">
                 <Label Margin="0,12,0,0"  Text="Decimal"
-                       x:Name="DecLabel" HorizontalOptions="Start"
+                       x:Name="DecLabel" HorizontalOptions="StartAndExpand"
                        VerticalOptions="Start"/>
                 </Grid>
-            <Grid Grid.Row="0" Grid.Column="1">
-                <Editor x:Name="Decimal" Keyboard="Numeric"
+        <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+            <Editor x:Name="Decimal" Keyboard="Numeric"
                         HorizontalOptions="Fill" VerticalOptions="Start"/>
-            </Grid>
-            <Grid Grid.Row="1" Grid.Column="0">
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="3">
+            <Button x:Name="invert" FontSize="10" WidthRequest="50"
+                    HorizontalOptions="Center" Clicked="Invert_Clicked"
+                    Text="↑↓"/>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
             <Label Margin="0,15,0,0" Text="Binary" x:Name="BinLabel"/>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1">
-            <Editor x:Name="Binary" HorizontalOptions="Fill" VerticalOptions="Start"/>
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+            <Editor x:Name="Binary" HorizontalOptions="Fill"
+                    VerticalOptions="Start" IsEnabled="False"/>
         </Grid>
-        <Grid Grid.Row="2" Grid.Column="1">
+        <Grid Grid.Row="3" Grid.ColumnSpan="3">
             <Button Clicked="Button_Clicked" HorizontalOptions="Center"
                     VerticalOptions="Start" Text="Calulate"/>
         </Grid>

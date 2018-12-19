@@ -5,35 +5,66 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace BinaryConverter
 {
     public partial class MainPage : ContentPage
     {
+        bool isDecToBin = true;
         public MainPage()
         {
             InitializeComponent();
+            On<iOS>().SetUseSafeArea(true);
         }
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            Binary.Text = calculate(Decimal.Text).ToString();   
+            Binary.Text = ActionSelector();   
         }
 
-        private int calculate(string text)
+        private string ActionSelector()
         {
-            int dec = 0;
+            return isDecToBin ? DectToBin() : BinToDec();
+        }
+
+        private string BinToDec()
+        {
+            string blackAc = Decimal.Text;
+            int result = 0;
+            for(int i=1;i<=blackAc.Length;i++)
+            {
+                result+=(int)(int.Parse(blackAc[i-1].ToString()) * Math.Pow(2,blackAc.Length - i));
+            }
+            return result.ToString();
+        }
+
+        private string DectToBin()
+        {
             Stack<int> stack = new Stack<int>();
-            dec = Int32.Parse(text);
+            int dec = Int32.Parse(Decimal.Text);
             while (dec >= 1)
             {
-                stack.Push(dec%2);
+                stack.Push(dec % 2);
                 dec /= 2;
             }
             string result = "";
-            foreach (int item in stack) result += item;
-            dec=Int32.Parse(result);
-            return dec;
+            while (stack.Count > 0)
+                result += stack.Pop();
+            return result;
+        }
+
+        private void Invert_Clicked(object sender, EventArgs e)
+        {
+
+            string temp;
+            temp = DecLabel.Text;
+            DecLabel.Text = BinLabel.Text;
+            BinLabel.Text = temp;
+            Decimal.Text = "";
+            Binary.Text = "";
+            isDecToBin = !isDecToBin;
         }
     }
 }
